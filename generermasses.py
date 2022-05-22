@@ -7,7 +7,7 @@ import masse as m
 from afficher import *
 import decoder as d
 
-os.chdir("C:\\Users\\thomas\\Documents\\Travail\\TIPE")
+os.chdir("C:\\Users\\thoma\\Documents\\GitHub\\Tipe")
 
 # pour n = 64 on va fixer le seuil d'angulariter a m = 1/16 pour p = 64
 # m = 1/8 equivaut a maligne
@@ -22,6 +22,7 @@ def genere_masse(entier, seuil, n, p):
     elif entier == 0:
         return [m.masse(p, n, seuil/2), entier]
 
+
 def genere_masse2(entier, seuil, n, p):
     """genere une masse etiqueté avec une constante d'angularité plus ou moins aleatoire"""
     if entier == 1:
@@ -31,6 +32,7 @@ def genere_masse2(entier, seuil, n, p):
         const_angularite = random.gauss(seuil/2, seuil/4)
         return [m.masse(p, n, const_angularite), entier]
 
+
 def stocker_masses(nombres_images, seuil, n, p, nom_du_fichier="datasets.txt"):
     """stock les matrices d'images de masses etiquetés dans un fichier data.txt dans le meme dossier"""
     masses = {"data": [], "target": []}
@@ -39,7 +41,8 @@ def stocker_masses(nombres_images, seuil, n, p, nom_du_fichier="datasets.txt"):
         masse = genere_masse2(entier, seuil, n, p)
         masses["data"].append(masse[0])
         masses["target"].append(masse[1])
-        d.encode(nom_du_fichier, masses)
+        d.encode(masses, nom_du_fichier)
+
 
 if __name__ == "__main__":
-    stocker_masses(1000, 1/16, 64, 64, "datasets.txt")
+    stocker_masses(100, 1/16, 64, 64, "datasets.txt")
