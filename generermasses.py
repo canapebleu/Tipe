@@ -45,4 +45,4 @@ def stocker_masses(nombres_images, seuil, n, p, nom_du_fichier="datasets.txt"):
 
 
 if __name__ == "__main__":
-    stocker_masses(100, 1/16, 64, 64, "datasets.txt")
+    stocker_masses(500, 1/16, 64, 64, "datasets.txt")
