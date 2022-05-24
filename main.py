@@ -53,23 +53,25 @@ def preparation_data_multicouche(nom_du_fichier, proportion_train):
     X_test_reshape_transpose = X_test_reshape.T
     Y_train_reshape = Y_train.reshape((1, Y_train.shape[0]))
     Y_test_reshape = Y_test.reshape((1, Y_test.shape[0]))
-    
+
     return X_train_reshape_transpose, Y_train_reshape, X_test_reshape_transpose, Y_test_reshape
+
 
 def trainning_multicouche(nom_du_fichier, hidden_layers, learning_rate, n_iter, visualisation, proportion_train):
     X_train, Y_train, X_test, Y_test = preparation_data_multicouche(
         nom_du_fichier, proportion_train)
     parametres = r.deep_neural_network(
         X_train, Y_train, hidden_layers, learning_rate, n_iter, visualisation)
-    
+
     return parametres
+
 
 def stocker_parametres_multicouche(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres2.txt", hidden_layers=(16, 16, 16), learning_rate=0.001, n_iter=3000, visualisation=True, proportion_train=3/4):
     parametres = trainning_multicouche(nom_du_fichier_datasets, hidden_layers,
-                           learning_rate, n_iter, visualisation, proportion_train)
+                                       learning_rate, n_iter, visualisation, proportion_train)
     u.encode(parametres, nom_du_fichier_parametres)
 
 
 if __name__ == "__main__":
-    # stocker_parametres()
+    stocker_parametres()
     stocker_parametres_multicouche()
