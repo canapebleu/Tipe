@@ -12,4 +12,3 @@ def decode_reshape_W(nom_du_fichier):
 if __name__ == "__main__":
     W = decode_reshape_W("parametres.txt")
     u.show(W)
-    print(W)
