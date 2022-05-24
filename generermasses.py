@@ -4,8 +4,7 @@ from tqdm import tqdm
 import random
 
 import masse as m
-from afficher import *
-import decoder as d
+import utilitaire as u
 
 os.chdir("C:\\Users\\thoma\\Documents\\GitHub\\Tipe")
 
@@ -41,7 +40,7 @@ def stocker_masses(nombres_images, seuil, n, p, nom_du_fichier="datasets.txt"):
         masse = genere_masse2(entier, seuil, n, p)
         masses["data"].append(masse[0])
         masses["target"].append(masse[1])
-        d.encode(masses, nom_du_fichier)
+        u.encode(masses, nom_du_fichier)
 
 
 if __name__ == "__main__":

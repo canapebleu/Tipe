@@ -1,4 +1,6 @@
-import decoder as d
-import afficher as a
+import utilitaire as u
 
-a.show(d.decode("data.txt")[3][0])
+
+if __name__ == "__main__":
+    for i in range(10):
+        u.show(u.decode("datasets.txt")["data"][i])

@@ -3,6 +3,8 @@ import random
 import matplotlib.pyplot as plt
 import numpy as np
 
+import utilitaire as u
+
 # r = 0.375 * n le rayon de la masse avec n la taille de l'image
 # c = (int(n/2),int(n/2)) le centre de l'image
 # on defini m = 1/8  la constante d'angularité un nombre qui qui quantifie les imperfections a la surface de la masse
@@ -112,5 +114,5 @@ def masse(p, n, m):
 
 
 if __name__ == "__main__":
-    plt.imshow(masse(64, 64, 1/16))
-    plt.show()
+    u.show(masse(64, 64, 1/16))
+

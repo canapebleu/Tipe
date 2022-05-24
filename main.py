@@ -1,11 +1,11 @@
 import numpy as np
 
-import decoder as d
+import utilitaire as u
 import perceptron as p
 
 
 def preparation_data(nom_du_fichier, proportion_train):
-    datasets = d.decode(nom_du_fichier)
+    datasets = u.decode(nom_du_fichier)
     n = len(datasets["data"])
     nombre_train = int(n*proportion_train)
     X_train = np.array(datasets["data"][:nombre_train])
@@ -26,7 +26,7 @@ def trainning(nom_du_fichier,  learning_rate, n_iter, visualisation, proportion_
 
 def stocker_parametres(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres.txt", learning_rate=0.01, n_iter=10000, visualisation= True, proportion_train= 3/4):
     W, b = trainning(nom_du_fichier_datasets, learning_rate, n_iter, visualisation, proportion_train)
-    d.encode([W, b], nom_du_fichier_parametres)
+    u.encode([W, b], nom_du_fichier_parametres)
 
 if __name__ == "__main__":
     stocker_parametres()
