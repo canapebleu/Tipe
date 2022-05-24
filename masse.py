@@ -100,6 +100,7 @@ def masse(p, n, m):
     l = liste_sommets(p, r, m)
     rayon_min, rayon_max = rayon_min_max(l)
     translation = translation_aleatoire(n)
+    #translation = (0, 0)
     for i in range(n):
         for j in range(n):
             v = IJ2XY_decentre((i, j), n, translation)
