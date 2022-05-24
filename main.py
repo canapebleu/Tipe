@@ -21,6 +21,20 @@ def preparation_data(nom_du_fichier, proportion_train):
     return X_train_reshape, Y_train, X_test_reshape, Y_test
 
 
+def trainning(nom_du_fichier, learning_rate, n_iter, visualisation, proportion_train):
+    X_train_reshape, Y_train, X_test_reshape, Y_test = preparation_data(
+        nom_du_fichier, proportion_train)
+    W, b = p.artificial_neuron(
+        X_train_reshape, Y_train, X_test_reshape, Y_test, learning_rate, n_iter, visualisation)
+    return W, b
+
+
+def stocker_parametres(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres.txt", learning_rate=0.01, n_iter=10000, visualisation=True, proportion_train=3/4):
+    W, b = trainning(nom_du_fichier_datasets, learning_rate,
+                     n_iter, visualisation, proportion_train)
+    u.encode([W, b], nom_du_fichier_parametres)
+
+
 def preparation_data_multicouche(nom_du_fichier, proportion_train):
     datasets = u.decode(nom_du_fichier)
     n = len(datasets["data"])
@@ -42,14 +56,6 @@ def preparation_data_multicouche(nom_du_fichier, proportion_train):
     
     return X_train_reshape_transpose, Y_train_reshape, X_test_reshape_transpose, Y_test_reshape
 
-def trainning(nom_du_fichier, learning_rate, n_iter, visualisation, proportion_train):
-    X_train_reshape, Y_train, X_test_reshape, Y_test = preparation_data(
-        nom_du_fichier, proportion_train)
-    W, b = p.artificial_neuron(
-        X_train_reshape, Y_train, X_test_reshape, Y_test, learning_rate, n_iter, visualisation)
-    return W, b
-
-
 def trainning_multicouche(nom_du_fichier, hidden_layers, learning_rate, n_iter, visualisation, proportion_train):
     X_train, Y_train, X_test, Y_test = preparation_data_multicouche(
         nom_du_fichier, proportion_train)
@@ -58,14 +64,7 @@ def trainning_multicouche(nom_du_fichier, hidden_layers, learning_rate, n_iter, 
     
     return parametres
 
-
-def stocker_parametres(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres.txt", learning_rate=0.01, n_iter=10000, visualisation=True, proportion_train=3/4):
-    W, b = trainning(nom_du_fichier_datasets, learning_rate,
-                     n_iter, visualisation, proportion_train)
-    u.encode([W, b], nom_du_fichier_parametres)
-
-
-def stocker_parametres2(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres2.txt", hidden_layers=(16, 16, 16), learning_rate=0.001, n_iter=3000, visualisation=True, proportion_train=3/4):
+def stocker_parametres_multicouche(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres2.txt", hidden_layers=(16, 16, 16), learning_rate=0.001, n_iter=3000, visualisation=True, proportion_train=3/4):
     parametres = trainning_multicouche(nom_du_fichier_datasets, hidden_layers,
                            learning_rate, n_iter, visualisation, proportion_train)
     u.encode(parametres, nom_du_fichier_parametres)
@@ -73,4 +72,4 @@ def stocker_parametres2(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_p
 
 if __name__ == "__main__":
     # stocker_parametres()
-    stocker_parametres2()
+    stocker_parametres_multicouche()
