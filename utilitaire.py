@@ -23,5 +23,5 @@ def encode(object, nom_du_fichier):
 
 def show(image):
     """afficher une image"""
-    plt.imshow(image)
+    plt.imshow(image, cmap='gray')
     plt.show()

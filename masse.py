@@ -22,6 +22,7 @@ def IJ2XY(v, n):
     y = -v[0] + p
     return x, y
 
+
 def IJ2XY_decentre(v, n, v_translation):
     """changement de base pour s'adapter aux matrices en decentrant les masses"""
     x_translation, y_translation = v_translation[0], v_translation[1]
@@ -30,11 +31,13 @@ def IJ2XY_decentre(v, n, v_translation):
     y = -v[0] + p + y_translation
     return x, y
 
-def translation_aleatoire(n, sigma = 1):
+
+def translation_aleatoire(n, sigma=1):
     """retourne un vecteur de direction et de norme aleatoire"""
     x_translation = random.gauss(0, sigma) * 1/12 * n
     y_translation = random.gauss(0, sigma) * 1/12 * n
     return x_translation, y_translation
+
 
 def liste_des_points_du_cercle(p, r):
     """renvoie p points du cercle de centre (0,0) de rayon r repartis comme il faut"""
@@ -116,4 +119,3 @@ def masse(p, n, m):
 
 if __name__ == "__main__":
     u.show(masse(64, 64, 1/16))
-
