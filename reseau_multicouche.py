@@ -29,6 +29,7 @@ def forward_propagation(X, parametres):
 
 
 def back_propagation(y, parametres, activations):
+    """calcul du gradient"""
     m = y.shape[1]
     C = len(parametres) // 2
     dZ = activations['A' + str(C)] - y

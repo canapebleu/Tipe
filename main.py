@@ -74,4 +74,4 @@ def stocker_parametres_multicouche(nom_du_fichier_datasets="datasets.txt", nom_d
 
 if __name__ == "__main__":
     stocker_parametres()
-    stocker_parametres_multicouche()
+    #stocker_parametres_multicouche()

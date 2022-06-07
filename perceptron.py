@@ -47,7 +47,7 @@ def predict(X, W, b):
 def artificial_neuron(X_train, y_train, X_test, y_test, learning_rate, n_iter, visualisation):
     """perceptron"""
     W, b = initialisation(X_train)
-    
+
     if visualisation:
         train_loss = []
         train_acc = []
@@ -57,7 +57,7 @@ def artificial_neuron(X_train, y_train, X_test, y_test, learning_rate, n_iter, v
     for i in tqdm(range(n_iter)):
         A = model(X_train, W, b)
 
-        if i %10 == 0 and visualisation:
+        if visualisation:
             # Train
             train_loss.append(log_loss(A, y_train))
             y_pred = predict(X_train, W, b)
