@@ -5,10 +5,6 @@ import numpy as np
 
 import utilitaire as u
 
-# r = 0.375 * n le rayon de la masse avec n la taille de l'image
-# c = (int(n/2),int(n/2)) le centre de l'image
-# on defini m = 1/8  la constante d'angularité un nombre qui qui quantifie les imperfections a la surface de la masse
-
 
 def init_image(n):
     """initialisation d'une image"""
@@ -102,8 +98,10 @@ def masse(p, n, m):
     r = 0.375 * n
     l = liste_sommets(p, r, m)
     rayon_min, rayon_max = rayon_min_max(l)
-    translation = translation_aleatoire(n)
-    #translation = (0, 0)
+    
+    # recentrer les images
+    #translation = translation_aleatoire(n)
+    translation = (0, 0)
     for i in range(n):
         for j in range(n):
             v = IJ2XY_decentre((i, j), n, translation)

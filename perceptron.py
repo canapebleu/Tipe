@@ -76,8 +76,8 @@ def artificial_neuron(X_train, y_train, X_test, y_test, learning_rate, n_iter, v
     if visualisation:
         plt.figure(figsize=(12, 4))
         plt.subplot(1, 2, 1)
-        plt.plot(train_loss, label='train loss')
-        plt.plot(test_loss, label='test loss')
+        plt.plot(train_loss, label='train LogLoss')
+        plt.plot(test_loss, label='test LogLoss')
         plt.legend()
         plt.subplot(1, 2, 2)
         plt.plot(train_acc, label='train accuracy')

@@ -29,7 +29,7 @@ def trainning(nom_du_fichier, learning_rate, n_iter, visualisation, proportion_t
     return W, b
 
 
-def stocker_parametres(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres.txt", learning_rate=0.01, n_iter=10000, visualisation=True, proportion_train=3/4):
+def stocker_parametres(nom_du_fichier_datasets="datasets.txt", nom_du_fichier_parametres="parametres.txt", learning_rate=0.01, n_iter=10000, visualisation=True, proportion_train=4/5):
     W, b = trainning(nom_du_fichier_datasets, learning_rate,
                      n_iter, visualisation, proportion_train)
     u.encode([W, b], nom_du_fichier_parametres)
